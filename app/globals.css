@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/*
+ * Operator design tokens.
+ * Warm neutral canvas, charcoal ink, hairline borders, restrained semantics.
+ */
+:root {
+  --canvas: #f7f7f5;
+  --surface: #ffffff;
+  --surface-muted: #f9f9f8;
+  --surface-sunken: #f3f3f1;
+  --hover: #f4f4f2;
+  --active: #ededeb;
+
+  --ink: #1b1b19;
+  --ink-2: #3a3a37;
+  --muted: #6f6e69;
+  --subtle: #9c9b95;
+
+  --line: #e8e7e3;
+  --line-strong: #dcdbd6;
+
+  --primary: #1b1b19;
+  --primary-hover: #2e2e2b;
+  --primary-fg: #fafaf9;
+
+  --ring: #1b1b1926;
+
+  --green: #2f7a4b;
+  --green-bg: #eef6f0;
+  --green-line: #d3e8da;
+  --amber: #93661a;
+  --amber-bg: #fbf5e7;
+  --amber-line: #efe0bb;
+  --red: #b2433b;
+  --red-bg: #fbefed;
+  --red-line: #f1d3cf;
+  --blue: #3d5a9e;
+  --blue-bg: #eff3fb;
+  --blue-line: #d6e0f3;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-hover: var(--hover);
+  --color-active: var(--active);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-fg: var(--primary-fg);
+  --color-ring: var(--ring);
+  --color-green: var(--green);
+  --color-green-bg: var(--green-bg);
+  --color-green-line: var(--green-line);
+  --color-amber: var(--amber);
+  --color-amber-bg: var(--amber-bg);
+  --color-amber-line: var(--amber-line);
+  --color-red: var(--red);
+  --color-red-bg: var(--red-bg);
+  --color-red-line: var(--red-line);
+  --color-blue: var(--blue);
+  --color-blue-bg: var(--blue-bg);
+  --color-blue-line: var(--blue-line);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --text-2xs: 11px;
+  --text-2xs--line-height: 16px;
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 13px;
+  --text-sm--line-height: 20px;
+  --text-base: 14px;
+  --text-base--line-height: 22px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+
+  --shadow-xs: 0 1px 1px rgb(20 20 18 / 0.04);
+  --shadow-sm: 0 1px 2px rgb(20 20 18 / 0.05), 0 0 0 1px rgb(20 20 18 / 0.02);
+  --shadow-pop: 0 1px 2px rgb(20 20 18 / 0.06), 0 8px 24px -6px rgb(20 20 18 / 0.14);
+  --shadow-panel: 0 16px 48px -12px rgb(20 20 18 / 0.2);
+
+  --animate-fade-in: fade-in 180ms ease-out;
+  --animate-fade-out: fade-out 140ms ease-in;
+  --animate-pop-in: pop-in 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-pop-out: pop-out 120ms ease-in;
+  --animate-sheet-in: sheet-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-sheet-out: sheet-out 160ms ease-in;
+  --animate-sheet-left-in: sheet-left-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-sheet-left-out: sheet-left-out 160ms ease-in;
+  --animate-pulse-dot: pulse-dot 1.4s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.4s linear infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  @keyframes pop-in {
+    from { opacity: 0; transform: translateY(4px) scale(0.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes pop-out {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.985); }
+  }
+  @keyframes sheet-in {
+    from { transform: translateX(16px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes sheet-out {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(16px); opacity: 0; }
+  }
+  @keyframes sheet-left-in {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+  @keyframes sheet-left-out {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  @keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--line);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 20px;
+    font-feature-settings: "cv11", "ss01", "ss03";
+  }
+
+  ::selection {
+    background: #1b1b191a;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 1px;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum", "cv11";
+}
+
+@utility skeleton {
+  background: linear-gradient(90deg, var(--surface-sunken) 0%, #ebebe8 50%, var(--surface-sunken) 100%);
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+  border-radius: var(--radius-sm);
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}
